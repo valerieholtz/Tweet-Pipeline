@@ -20,7 +20,7 @@ Go to the main folder of the project in the terminal and run docker-compose buil
 
 Python
 
-
+API
 
 MongoDB
 
