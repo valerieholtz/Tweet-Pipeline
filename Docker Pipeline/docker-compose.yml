@@ -1,0 +1,42 @@
+version: '3'
+services:
+  
+  pg_database:                      
+    image: postgres:latest       
+    environment:                
+    - POSTGRES_PASSWORD=1234
+    - POSTGRES_USER=postgres
+    - POSTGRES_DB=my_db
+    ports:
+    - 5555:5432 
+
+
+  tweet_collector:
+    build: tweet_collector/   
+    - API_KEY=${API_KEY}
+    - API_SECRET=${API_SECRET}
+    depends_on:            
+    - pg_database
+    - mongo_database           
+
+
+  mongo_database:
+    image: mongo:latest 
+    ports:
+    - 27018:27017
+
+
+
+  etl:
+    build: etl_job/
+    volumes:
+    - ./etl_job/:/app
+    environment:
+    - POSTGRES_PASSWORD=1234
+    - POSTGRES_USER=postgres
+    - POSTGRES_DB=my_db
+    depends_on:
+    - mongo_database
+    - pg_database          
+
+
