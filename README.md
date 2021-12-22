@@ -18,18 +18,11 @@ Go to the main folder of the project in the terminal and run docker-compose buil
 
 ## Keywords:
 
-Python
-
-API
-
-MongoDB
-
-PostgresSQL
-
-ETL
-
-Docker
-
-NLP
-
-Sentiment Analysis
+- Python
+- API
+- MongoDB
+- PostgresSQL
+- ETL
+- Docker
+- NLP
+- Sentiment Analysis
