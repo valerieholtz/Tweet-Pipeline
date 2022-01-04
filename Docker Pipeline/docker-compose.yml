@@ -12,7 +12,10 @@ services:
 
 
   tweet_collector:
-    build: tweet_collector/   
+    build: tweet_collector/
+    volumes:
+    - ./tweet_collector/:/app
+    environment:   
     - API_KEY=${API_KEY}
     - API_SECRET=${API_SECRET}
     depends_on:            
